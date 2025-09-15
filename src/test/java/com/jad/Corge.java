@@ -16,4 +16,3 @@ public class Corge {
         this.foo = foo;
     }
 }
-//
