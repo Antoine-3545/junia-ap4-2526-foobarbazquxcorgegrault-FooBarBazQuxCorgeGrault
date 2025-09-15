@@ -1,0 +1,13 @@
+package com.jad;
+
+public class Corge {
+    private Foo foo;
+
+    public Corge(Foo foo) {
+        this.foo = foo;
+    }
+
+    public Foo getFoo() {
+        return foo;
+    }
+}
