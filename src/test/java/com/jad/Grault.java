@@ -11,4 +11,3 @@ public class Grault {
         return foo;
     }
 }
-//
