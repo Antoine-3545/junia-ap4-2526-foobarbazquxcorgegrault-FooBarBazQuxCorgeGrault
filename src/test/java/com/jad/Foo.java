@@ -4,51 +4,54 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Foo {
-    private Bar bar;
-    private List<Baz> bazs = new ArrayList<>();
-    private Qux qux;
+
+    private final Bar bar;
+    private final List<Baz> bazs = new ArrayList<>();
     private Corge corge;
-    private List<Grault> graults = new ArrayList<>();
+    private final List<Grault> graults = new ArrayList<>();
+    private final Qux qux;
 
     public Foo(Bar bar) {
         this.bar = bar;
+        this.qux = new Qux();
     }
 
-    public void addBaz(Baz baz) {
+    public void addBaz(Baz baz){
         this.bazs.add(baz);
     }
 
-    public void addGrault() {
+    public void addGrault(){
         Grault grault = new Grault(this);
         this.graults.add(grault);
     }
 
-    // Getters
     public Bar getBar() {
-        return bar;
+        return this.bar;
     }
 
     public List<Baz> getBazs() {
-        return bazs;
-    }
-
-    public Qux getQux() {
-        return qux;
-    }
-
-    public void setQux(Qux qux) {
-        this.qux = qux;
+        return this.bazs;
     }
 
     public Corge getCorge() {
-        return corge;
-    }
-
-    public void setCorge(Corge corge) {
-        this.corge = corge;
+        return this.corge;
     }
 
     public List<Grault> getGraults() {
-        return graults;
+        return this.graults;
+    }
+
+    public Qux getQux() {
+        return this.qux;
+    }
+
+    public void setCorge(Corge corge) {
+        if (this.corge != null) {
+            this.corge.setFoo(null);
+        }
+        this.corge = corge;
+        if (corge != null) {
+            corge.setFoo(this);
+        }
     }
 }
