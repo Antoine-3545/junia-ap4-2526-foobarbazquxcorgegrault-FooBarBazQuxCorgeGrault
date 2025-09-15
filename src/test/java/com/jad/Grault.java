@@ -8,7 +8,7 @@ public class Grault {
     }
 
     public Foo getFoo() {
-        return foo;
+        return this.foo;
     }
 }
 //
